@@ -8,4 +8,7 @@ def index(request):
     return render(request, 'base/index.html', context)
 
 def todo(request):
-    context = {'todos': todos}
+    pass
+
+def create(request):
+    return render(request, 'base/create.html')
