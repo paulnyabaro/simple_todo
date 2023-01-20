@@ -3,4 +3,4 @@ from .models import ToDoList, Item
 
 
 def index(request):
-    pass
+    return render(request, 'base/base.html')
