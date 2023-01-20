@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+<ul>
+    {% for todo in todo_items %}
+    <li>{{ todo.name }}</li>
+    <ul>
+        {% for item in todo.item_set.all %}
+        {% if item.complete %}
+        <li style="text-decoration: line-through; color:green;">{{ item.text }}</li>
+        {% else %}
+        <li>{{ item.text }}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</ul>
+{% endblock %}
