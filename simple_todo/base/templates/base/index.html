@@ -4,18 +4,22 @@
 {% block content %}
 <h1>Todo items</h1>
 
-    {% for todo in todo_items %}
-    <div class="card p-3 mb-3">{{ todo.name }}
-        <ul class="ps-3 mb-0">
-            {% for item in todo.item_set.all %}
-            {% if item.complete %}
-            <li style="text-decoration: line-through; color:green;">{{ item.text }}</li>
-            {% else %}
-            <li>{{ item.text }}</li>
-            {% endif %}
-            {% endfor %}
-        </ul>
+    <div class="row">
+        {% for todo in todo_items %}
+            <div class="col-md-4">
+                <div class="card p-3 mb-3">{{ todo.name }}
+                    <ul class="ps-3 mb-0">
+                        {% for item in todo.item_set.all %}
+                        {% if item.complete %}
+                        <li style="text-decoration: line-through; color:green;">{{ item.text }}</li>
+                        {% else %}
+                        <li>{{ item.text }}</li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 
 {% endblock %}
