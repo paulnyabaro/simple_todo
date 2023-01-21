@@ -6,7 +6,7 @@
 
     {% for todo in todo_items %}
     <div class="card p-3">{{ todo.name }}
-        <ul class="ps-3">
+        <ul class="ps-3 mb-0">
             {% for item in todo.item_set.all %}
             {% if item.complete %}
             <li style="text-decoration: line-through; color:green;">{{ item.text }}</li>
