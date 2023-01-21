@@ -12,5 +12,6 @@ def todo(request):
     pass
 
 def create(request):
-    context = {'page': 'create'}
+    form = CreateNewList()
+    context = {'page': 'create', 'form': form}
     return render(request, 'base/create.html', context)
