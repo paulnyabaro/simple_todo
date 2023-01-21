@@ -5,6 +5,7 @@
 {% block content%}
 <h1>Create Items</h1>
 <form action="">
+    {% csrf_token %}
     <label for="name" class="form-label">Name</label>
     {{ form.name }}
     <button class="btn btn-primary" type="submit">Submit</button>
