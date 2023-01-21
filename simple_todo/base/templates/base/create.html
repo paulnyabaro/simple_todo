@@ -5,7 +5,8 @@
 {% block content%}
 <h1>Create Items</h1>
 <form action="">
-    {{ form.as_p }}
+    <label for="name" class="form-label">Name</label>
+    {{ form.name }}
     <button class="btn btn-primary" type="submit">Submit</button>
 </form>
 {% endblock %}
