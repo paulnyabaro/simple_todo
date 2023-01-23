@@ -17,7 +17,18 @@
                         {% endif %}
                         {% endfor %}
                     </ul>
-                    <a href="{% url 'todo' todo.id %}" class="btn btn-primary">View</a>
+                    <hr>
+                    <div class="row">
+                        <div class="col-4">
+                            <a href="{% url 'todo' todo.id %}" class="btn btn-sm badge btn-dark">View</a>
+                        </div>
+                        <div class="col-4 text-center">
+                            <a href="#" class="btn btn-sm badge btn-primary">Edit</a>
+                        </div>
+                        <div class="col-4 text-end">
+                            <a href="#" class="btn btn-sm badge btn-danger">Delete</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endfor %}
