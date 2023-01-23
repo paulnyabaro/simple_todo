@@ -4,15 +4,26 @@
 <h1>Todo item</h1>
 
 <div class="card p-3 mb-3">{{ todo_item.name }}
-    <ul class="ps-3 mb-0">
-        {% for item in todo_item.item_set.all %}
-        {% if item.complete %}
-        <li style="text-decoration: line-through; color:green;">{{ item.text }}</li>
-        {% else %}
-        <li>{{ item.text }}</li>
-        {% endif %}
-        {% endfor %}
-    </ul>
+    <form action="">
+        <ul class="ps-3 mb-0">
+            {% for item in todo_item.item_set.all %}
+            {% if item.complete %}
+            <li style="text-decoration: line-through; color:green;">{{ item.text }}</li>
+            {% else %}
+            <li>{{ item.text }}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        {% csrf_token %}
+        <div class="row mt-3">
+            <div class="col-9">
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-3">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
 </div>
 
 {% endblock %}
