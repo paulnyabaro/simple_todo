@@ -15,12 +15,15 @@
         <ul class="list-unstyled">
             {% for item in todo_item.item_set.all %}
             {% if item.complete %}
-            <li class="item-complete">
-                <input type="checkbox" name="c{{ item.id }}" id="id{{ item.id }}">
+            <li>
+                <input type="checkbox" checked name="c{{ item.id }}" id="id{{ item.id }}">
                 <label for="id{{ item.id }}">{{ item.text }}</label>
             </li>
             {% else %}
-            <li>{{ item.text }}</li>
+            <li>
+                <input type="checkbox" name="c{{ item.id }}" id="id{{ item.id }}">
+                <label for="id{{ item.id }}">{{ item.text }}</label>
+            </li>
             {% endif %}
             {% endfor %}
         </ul>

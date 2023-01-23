@@ -9,7 +9,10 @@ body{
     font-family: 'Inter', sans-serif;
     font-size: 14px;
 }
-.item-complete label{
+form{
+    accent-color: green;
+}
+li input:checked + label{
     text-decoration: line-through;
     color: green;
 }
