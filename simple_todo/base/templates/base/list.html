@@ -6,23 +6,23 @@
         <h1>{{ todo_item.name }}</h1>
     </div>
     <div class="col-2 text-end">
-        <button type="submit" class="btn btn-primary">Add Item</button>
+        <button type="submit" name="save" value="save" class="btn btn-primary">Save</button>
     </div>
 </div>
 <hr>
 <div>
     
-    <form action="">
+    <form action="" method="post">
         <ul class="list-unstyled">
             {% for item in todo_item.item_set.all %}
             {% if item.complete %}
             <li>
-                <input type="checkbox" checked name="c{{ item.id }}" id="id{{ item.id }}">
+                <input type="checkbox" value="clicked" checked name="c{{ item.id }}" id="id{{ item.id }}">
                 <label for="id{{ item.id }}">{{ item.text }}</label>
             </li>
             {% else %}
             <li>
-                <input type="checkbox" name="c{{ item.id }}" id="id{{ item.id }}">
+                <input type="checkbox" value="clicked" name="c{{ item.id }}" id="id{{ item.id }}">
                 <label for="id{{ item.id }}">{{ item.text }}</label>
             </li>
             {% endif %}
@@ -34,7 +34,7 @@
                 <input type="text" name="new" class="form-control">
             </div>
             <div class="col-2">
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" value="newItem" name="newItem" class="btn btn-primary">Add Item</button>
             </div>
         </div>
     </form>
