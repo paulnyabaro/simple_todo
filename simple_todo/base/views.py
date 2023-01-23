@@ -12,6 +12,10 @@ def todo(request):
     pass
 
 def create(request):
+    if request.method == 'POST':
+        form = CreateNewList(request.POST) # Create a for that has those characters populated
+    else:
+        pass
     form = CreateNewList()
     context = {'page': 'create', 'form': form}
     return render(request, 'base/create.html', context)
