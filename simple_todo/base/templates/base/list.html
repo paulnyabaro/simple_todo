@@ -12,10 +12,13 @@
 <div class="card p-3 mb-3">
     
     <form action="">
-        <ul class="ps-3 mb-0">
+        <ul class="list-unstyled">
             {% for item in todo_item.item_set.all %}
             {% if item.complete %}
-            <li style="text-decoration: line-through; color:green;">{{ item.text }}</li>
+            <li class="item-complete">
+                <input type="checkbox" name="c{{ item.id }}" id="id{{ item.id }}">
+                <label for="id{{ item.id }}">{{ item.text }}</label>
+            </li>
             {% else %}
             <li>{{ item.text }}</li>
             {% endif %}
