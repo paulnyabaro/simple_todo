@@ -8,6 +8,8 @@
 body{
     font-family: 'Inter', sans-serif;
     font-size: 14px;
+    background-color: #111;
+    color: #999;
 }
 form{
     accent-color: green;
@@ -15,4 +17,8 @@ form{
 li input:checked + label{
     text-decoration: line-through;
     color: green;
+}
+.alert-black{
+    background-color: #111;
+    color: #999;
 }
