@@ -7,7 +7,9 @@
     <div class="row">
         {% for todo in todo_items %}
             <div class="col-md-4">
-                <div class="card bg-dark p-3 mb-3">{{ todo.name }}
+                <div class="card bg-dark p-3 mb-3">
+                    <h6>{{ todo.name }}</h6>
+                    <hr class="mt-2">
                     {% if todo.item_set.all %}
                     <ul class="ps-3 mb-0">
                         {% for item in todo.item_set.all %}
