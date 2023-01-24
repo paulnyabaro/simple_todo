@@ -8,6 +8,7 @@
         {% for todo in todo_items %}
             <div class="col-md-4">
                 <div class="card p-3 mb-3">{{ todo.name }}
+                    {% if todo_item.item_set.all %}
                     <ul class="ps-3 mb-0">
                         {% for item in todo.item_set.all %}
                         {% if item.complete %}
@@ -16,6 +17,11 @@
                         <li>{{ item.text }}</li>
                         {% endif %}
                         {% endfor %}
+                        {% else %}
+                        <div class="alert alert-dark">
+                            No items available yet!
+                        </div>
+                        {% endif %}
                     </ul>
                     <hr>
                     <div class="row">
