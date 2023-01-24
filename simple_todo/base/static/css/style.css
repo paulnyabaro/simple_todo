@@ -22,3 +22,11 @@ li input:checked + label{
     background-color: #111;
     color: #999;
 }
+.tittle-sect{
+    position: relative;
+}
+.tittle-sect a{
+    position: absolute;
+    right: -0.2rem;
+    top: -0.2rem;
+}
