@@ -20,6 +20,6 @@ from register import views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', v.register, name='register'),
-    path('', include('base.urls')),
     path('', include('django.contrib.auth.urls')), # Adding default pages: login, logout, change pass
+    path('', include('base.urls')),
 ]
