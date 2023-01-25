@@ -3,5 +3,9 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
-
+<form action="" method="post" class="form-group">
+    {{ form }}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
 {% endblock %}
