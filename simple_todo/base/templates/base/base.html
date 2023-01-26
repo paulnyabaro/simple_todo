@@ -42,8 +42,12 @@
     </nav>
     <main class="py-5">
         <div class="container">
+            {% if user.is_authenticated %}
             {% block content %}
-        {% endblock %}
+            {% endblock %}
+            {% else %}
+            <p><a href="{% url 'login' %}">Login here</a></p>
+            {% endif %}
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
