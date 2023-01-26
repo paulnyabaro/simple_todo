@@ -16,7 +16,7 @@ def create(request):
         form = CreateNewList(request.POST) # Create a for that has those characters populated
         if form.is_valid():
             n = form.cleaned_data['name']
-            t = ToDoList(name=n)
+            t = request.user.todolist_set.create(name=n)
             t.save()
         return HttpResponseRedirect('/%i' %t.id)
 
