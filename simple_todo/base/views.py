@@ -29,22 +29,27 @@ def create(request):
 
 def todo(request, pk):
     todoitem = ToDoList.objects.get(id=pk)
-    if request.method == 'POST':
-        if request.POST.get('save'):
-            for item in todoitem.item_set.all():
-                if request.POST.get('c' + str(item.id)) == 'clicked':
-                    item.complete = True
+    if todoitem in request.user.todolist.all():
+
+        if request.method == 'POST':
+            if request.POST.get('save'):
+                for item in todoitem.item_set.all():
+                    if request.POST.get('c' + str(item.id)) == 'clicked':
+                        item.complete = True
+                    else:
+                        item.complete = False
+
+                    item.save()
+
+            elif request.POST.get('newItem'):
+                txt = request.POST.get('new')
+                if len(txt) > 2:
+                    todoitem.item_set.create(text=txt, complete=False)
                 else:
-                    item.complete = False
+                    print('Invalid')
 
-                item.save()
+        context = {'page': 'index', 'todo_item': todoitem}
+        return render(request, 'base/list.html', context)
 
-        elif request.POST.get('newItem'):
-            txt = request.POST.get('new')
-            if len(txt) > 2:
-                todoitem.item_set.create(text=txt, complete=False)
-            else:
-                print('Invalid')
-
-    context = {'page': 'index', 'todo_item': todoitem}
-    return render(request, 'base/list.html', context)
+    else:
+        return render(request, 'base/404.html')

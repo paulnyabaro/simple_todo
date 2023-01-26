@@ -1,0 +1,16 @@
+{% extends 'base/base.html'%}
+{% block title %}Page not found{% endblock %}
+
+{% block content %}
+<section class="py-4 py-lg-5">
+    <div class="container">
+        <div class="row align-items-center" style="min-height: calc(100vh - 250px);">
+            <div class="col-12 text-center">
+                <h1 class="display-1 fw-bold">404</h1>
+                <p>Page not found</p>
+                <a href="{% url 'index' %}" class="btn btn-outline-light">Back to homepage</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
