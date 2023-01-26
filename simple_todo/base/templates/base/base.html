@@ -26,12 +26,19 @@
                     <a class="nav-link {% if page == 'create' %} active{% endif %}" href="{% url 'create' %}">Create ToDo list</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-person"></i> Account
+                    <a class="nav-link dropdown-toggle text-capitalize" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person"></i> 
+                        {% if user.is_authenticated %}
+                        {{ user.username }}
+                        {% else %}
+                        Account
+                        {% endif %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {% if user.is_authenticated %}
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> My Account</a></li>
+                    <li>
+                        <a class="dropdown-item" href="#"><i class="bi bi-person"></i> My account</a>
+                    </li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="bi bi-power"></i> Log Out</a></li>
                     {% else %}
