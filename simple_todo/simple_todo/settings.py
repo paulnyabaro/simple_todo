@@ -128,3 +128,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4' # Defining crispy template pack to be used
 
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/' # Changing default logout page redirect
